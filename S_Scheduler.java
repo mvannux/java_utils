@@ -3,6 +3,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Example to start scheduled virtual thread
+ */
 public class S_Scheduler {
   public static void main(String[] args) {
     scheduler2();
