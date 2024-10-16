@@ -7,22 +7,18 @@ import java.util.concurrent.TimeUnit;
  * Example to start scheduled virtual thread
  */
 public class S_Scheduler {
-  public static void main(String[] args) {
-    scheduler2();
+  public static void main(String[] args) throws InterruptedException {
+    scheduler1();
+    // scheduler2();
   }
 
-  // NON CORRETTO
-  static void scheduler1() {
-    var scheduler = Executors.newScheduledThreadPool(1, Thread.ofVirtual().factory());
-    scheduler.scheduleAtFixedRate(() -> task1(), 0, 1, TimeUnit.SECONDS);
-    scheduler.scheduleAtFixedRate(() -> task2(), 0, 5, TimeUnit.SECONDS);
-    try {
-      Thread.sleep(30000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+  static void scheduler1() throws InterruptedException {
+    Executors.newScheduledThreadPool(1, Thread.ofVirtual().factory())
+        .scheduleAtFixedRate(() -> System.out.println("BEEP"), 0, 1, TimeUnit.SECONDS);
+    Thread.sleep(30000);
   }
+
+  // ---------------------------------------------------------
 
   static ScheduledExecutorService scheduler;
   static ExecutorService donkey;
@@ -52,6 +48,21 @@ public class S_Scheduler {
     try {
       Thread.sleep(10000);
     } catch (InterruptedException e) {
+    }
+  }
+
+  // ---------------------------------------------------------
+
+  // NON CORRETTO
+  static void scheduler3() {
+    var scheduler = Executors.newScheduledThreadPool(1, Thread.ofVirtual().factory());
+    scheduler.scheduleAtFixedRate(() -> task1(), 0, 1, TimeUnit.SECONDS);
+    scheduler.scheduleAtFixedRate(() -> task2(), 0, 5, TimeUnit.SECONDS);
+    try {
+      Thread.sleep(30000);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
   }
 

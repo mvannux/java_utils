@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.stream.Stream;
 
 /**
- * S_ListFiles
+ * Print directory files
  */
 public interface S_ListFiles {
 

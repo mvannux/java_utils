@@ -1,3 +1,4 @@
 {
-  "jira-plugin.workingProject": ""
+  "jira-plugin.workingProject": "",
+  "java.format.settings.url": ".vscode/java-formatter.xml"
 }
